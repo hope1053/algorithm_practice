@@ -3,5 +3,5 @@ def solution(a, b):
     for i in range(len(a)):
         sum += a[i]*b[i]
                 
-    answer = sum
-    return answer
+    myanswer = sum
+    return myanswer
