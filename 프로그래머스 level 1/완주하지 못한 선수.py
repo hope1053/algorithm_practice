@@ -7,4 +7,4 @@ def solution(participant, completion):
     for c in completion:
         table[c] -= 1
 
-    return [k for k,v in table.items() if v == 1] [0]
+    return [k for k,v in table.items() if v == 1][0]
