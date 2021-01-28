@@ -4,7 +4,7 @@ def solution(answers):
     student2 = [2, 1, 2, 3, 2, 4, 2, 5]
     student3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5] 
     score = [0, 0, 0]
-    winner =  []
+    winner = []
 
     for i in range(len(answers)):
         if answers[i] == student1[i % 5]:
