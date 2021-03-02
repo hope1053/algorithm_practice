@@ -3,4 +3,4 @@ def solution(n):
     while True:
         n += 1
         if format(n, 'b').count('1') == count:
-            return n
+            return mn
