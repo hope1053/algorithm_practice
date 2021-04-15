@@ -24,3 +24,12 @@ def solution(n):
         answer += 3**(len(arr)-idx-1) * value
         
     return answer
+
+# 3rd try
+def solution(n):
+    a, b = divmod(n, 3)
+    answer = str(b)
+    while a > 0:
+        a, b = divmod(a, 3)
+        answer += str(b)
+    return int(answer, 3)
