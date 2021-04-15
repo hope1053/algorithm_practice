@@ -12,3 +12,8 @@ from itertools import combinations
 def solution(numbers):
     arr = [sum(x) for x in list(combinations(numbers, 2))]
     return list(sorted(set(arr)))
+
+# 3rd try
+from itertools import combinations
+def solution(numbers):
+    return list(sorted(set([sum(x) for x in list(combinations(numbers, 2))])))
