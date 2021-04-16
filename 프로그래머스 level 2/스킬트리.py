@@ -1,3 +1,4 @@
+# 1st try
 def solution(skill, skill_trees):
     answer = 0
     table = {}
@@ -27,3 +28,21 @@ def solution(skill, skill_trees):
             answer += 1
         
     return answer
+
+# 2nd try
+from collections import deque
+def solution(skill, skill_trees):
+    count = 0
+    for skills in skill_trees:
+        skill_list = deque(skill)
+        for item in skills:
+            if item not in skill_list:
+                continue
+            if item == skill_list[0]:
+                skill_list.popleft()
+            else:
+                break
+        else:
+            count += 1
+            
+    return count
