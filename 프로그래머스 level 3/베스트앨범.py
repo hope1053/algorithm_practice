@@ -16,4 +16,4 @@ def solution(genres, plays):
                 tmp.append((value[1], idx))
         answer.extend(sorted(tmp, key = lambda x: (-x[0],x[1]))[:2])
     
-    return [x[1] for x in answer]
+        return [x[1] for x in answer]
