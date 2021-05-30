@@ -22,7 +22,7 @@ def solution(info, query):
                 table[case] = [int(tmp[-1])]
             else:
                 table[case].append(int(tmp[-1]))
-                
+
     for key in table.keys():
         table[key].sort()
 
@@ -30,7 +30,7 @@ def solution(info, query):
         seperate_q = check.split()
         tmp = ''.join([check.split()[x] for x in range(0,8,2)])
         if tmp in table.keys():
-            result.append(len(table[tmp]) - bisect_left(table[tmp], int(seperate_q[-1]), lo=0, hi=len(table[tmp])))
+            result.append(len(table[tmp]) - bisect_left(table[tmp], int(seperate_q[7]), lo=0, hi=len(table[tmp])))
         else:
             result.append(0)
     return result
