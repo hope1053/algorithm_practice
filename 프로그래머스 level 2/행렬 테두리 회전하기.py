@@ -1,3 +1,4 @@
+# dictionary 사용
 import heapq
 def solution(rows, columns, queries):
     table = [[0] * (columns + 1) for _ in range(rows + 1)]
@@ -42,3 +43,49 @@ def get_min(table, query, answer):
                 table[i][j] = rotated_dict[(i+1, j)]
                 
     answer.append(min(rotated_dict.values()))
+
+# table 회전
+import heapq
+def solution(rows, columns, queries):
+    table = [[0] * (columns + 1) for _ in range(rows + 1)]
+    answer = list()
+    # 테이블 생성
+    for i in range(1, rows + 1):
+        for j in range(1, columns + 1):
+            table[i][j] = (i - 1) * columns + j 
+    # 쿼리 갯수가 하나인 경우 처리
+    if len(queries) == 1:
+        return [table[queries[0][0]][queries[0][1]]]
+    # 쿼리가 2개 이상인 경우 각 쿼리별로 처리
+    for query in queries:
+        get_min(table, query, answer)
+        
+    return answer
+
+def get_min(table, query, answer):
+    start_row, start_col, end_row, end_col = query
+    tmp_value, min_value = table[start_row][start_col], table[start_row][start_col]
+    print(tmp_value)
+    
+    # 서쪽
+    for i in range(start_row, end_row):
+        table[i][start_col] = table[i + 1][start_col]
+        min_value = min(min_value, table[i][start_col])
+        
+    # 남쪽
+    for i in range(start_col, end_col):
+        table[end_row][i] = table[end_row][i + 1]
+        min_value = min(min_value, table[end_row][i])
+        
+    # 동쪽
+    for i in range(end_row, start_row, -1):
+        table[i][end_col] = table[i-1][end_col]
+        min_value = min(min_value, table[i][end_col])
+        
+    # 북쪽
+    for i in range(end_col, start_col, -1):
+        table[start_row][i] = table[start_row][i - 1]
+        min_value = min(min_value, table[start_row][i])
+        
+    table[start_row][start_col + 1] = tmp_value
+    answer.append(min_value)
