@@ -46,7 +46,7 @@ def get_min(table, query, answer):
 
 # table 회전
 import heapq
-def solution(rows, columns, queries):
+def solution_2(rows, columns, queries):
     table = [[0] * (columns + 1) for _ in range(rows + 1)]
     answer = list()
     # 테이블 생성
@@ -62,7 +62,7 @@ def solution(rows, columns, queries):
         
     return answer
 
-def get_min(table, query, answer):
+def get_min_2(table, query, answer):
     start_row, start_col, end_row, end_col = query
     tmp_value, min_value = table[start_row][start_col], table[start_row][start_col]
     print(tmp_value)
