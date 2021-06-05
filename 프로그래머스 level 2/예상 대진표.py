@@ -15,7 +15,7 @@ def solution(n,a,b):
     return count
 
 # second try
-def solution(n,a,b):
+def solution_2(n,a,b):
     count = 1
     
     while abs(a-b) != 1 or a // 2 == b // 2:
