@@ -1,3 +1,4 @@
+# 1st_try
 def solution(n, arr1, arr2):
     arr3 = [""] * n
     arr4 = [""] * n
@@ -32,3 +33,18 @@ def solution(n, arr1, arr2):
             else:
                 arr5[a] += " "
     return arr5
+
+# 2nd_try
+def second_solution(n, arr1, arr2):
+    answer = list()
+    secret_map = list()
+    for i in range(n):
+        secret_map.append(bin(arr1[i] | arr2[i])[2:])
+        
+    for key in secret_map:
+        key = key.rjust(n, "0")
+        key = key.replace("1", "#")
+        key = key.replace("0", " ")
+        answer.append(key)
+        
+    return answer
