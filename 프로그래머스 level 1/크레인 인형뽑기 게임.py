@@ -14,7 +14,7 @@ def solution(board, moves):
     return count
 
 # 2nd try
-def solution(board, moves):
+def second_solution(board, moves):
     stack = list()
     count = 0
     for move in moves:
@@ -30,3 +30,22 @@ def solution(board, moves):
                 board[idx][move-1] = 0
                 break
     return count
+
+# 3rd_try
+def third_solution(board, moves):
+    picked_dolls = list()
+    dolls_count = 0
+    moves = [num - 1 for num in moves]
+    
+    for move in moves:
+        for row in board:
+            if row[move] != 0:
+                picked_dolls.append(row[move])
+                row[move] = 0
+                break
+        if len(picked_dolls) >= 2 and picked_dolls[-1] == picked_dolls[-2]:
+            picked_dolls.pop()
+            picked_dolls.pop()
+            dolls_count += 2
+            
+    return dolls_count
