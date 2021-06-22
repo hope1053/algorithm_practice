@@ -3,8 +3,11 @@ def movable(next_x, next_y, w, h, ripped, tomato_box):
     
 w, h = map(int, input().split())
 
+# 익은 토마토 index 리스트
 ripe_tomato = list()
+# 토마토가 없는 위치 index 리스트
 no_tomato = list()
+# 전체 토마토 박스 리스트
 tomato_box = list()
 
 for i in range(h):
@@ -25,14 +28,15 @@ if w * h == len(ripe_tomato) + len(no_tomato):
     print(0)
     exit(0)
 
+# 익은 상태 계속 체크할 수 있는 리스트
 ripped = [[False] * w for _ in range(h)]
 
 for x, y in ripe_tomato + no_tomato:
     ripped[x][y] = True
 
 while ripe_tomato:
-    DELTAS = [(0,1), (0,-1), (1,0), (-1,0)]
     new_tomato = list()
+    DELTAS = [(0,1), (0,-1), (1,0), (-1,0)]
     for current_x, current_y in ripe_tomato:
         for dx, dy in DELTAS:
             next_x, next_y = current_x + dx, current_y + dy
