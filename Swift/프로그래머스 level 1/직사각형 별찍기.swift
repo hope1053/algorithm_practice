@@ -8,4 +8,4 @@ for _ in 1...b {
         print("*", terminator: "")
     }
     print()
-}
+}ㅎ
